@@ -27,12 +27,13 @@ def matrices():
         dictio_sub = dict(enumerate(grouper(intermediate_list, 5), start=1))
         #print(dictio_sub)
         search_string = '23'
-        for cle,valeurs in dictio_sub.items():
-            for val in valeurs:
-                #print(val)
-                if search_string in val:
-                    val.remove(search_string)
-                    print(val)
+        for val_search in values_to_search:
+            for cle,valeurs in dictio_sub.items():
+                for val in valeurs:
+                    if val_search in val:
+                        #print("la valeur a cherché est ",val_search,cle)
+                        print(val,val_search)
+
 
 """
 imaginons que vous ayez une liste avec des sous-listes de ce type
