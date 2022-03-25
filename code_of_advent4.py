@@ -1,5 +1,6 @@
 from itertools import zip_longest
 
+
 #7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
 def grouper(iterable, n, *, incomplete='fill', fillvalue=None):
@@ -26,13 +27,22 @@ def matrices():
             intermediate_list.append(list(sublist))
         dictio_sub = dict(enumerate(grouper(intermediate_list, 5), start=1))
         #print(dictio_sub)
-        search_string = '23'
+        search_string = 0
+        final = []
         for val_search in values_to_search:
             for cle,valeurs in dictio_sub.items():
                 for val in valeurs:
+                    print(val,cle,val_search)
                     if val_search in val:
-                        #print("la valeur a cherché est ",val_search,cle)
-                        print(val,val_search)
+                        val.remove(val_search)
+                    if len(val) == 1 and search_string in val:
+                        final = (val)
+                        break
+                    elif len(val) == 0:    
+                        search_string = cle
+                        break
+        print(search_string,final)            
+                        
 
 
 """
